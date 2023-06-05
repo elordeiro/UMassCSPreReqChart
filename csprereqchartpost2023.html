@@ -1,5 +1,4 @@
-<!-- Created by Estevao Lordeiro. Last update: 02/26/2023 
-this is a test-->
+<!-- Created by Estevao Lordeiro. Last update: 06/4/2023 -->
 <html>
 <head>
     <style>
@@ -7,11 +6,13 @@ this is a test-->
         body {
             height: 100%;
         }
+
         .main {
             height: 100%;
             width: 100%;
             display: table;
         }
+
         .wrapper {
             display: table-cell;
             height: 100%;
@@ -21,7 +22,7 @@ this is a test-->
 </head>
 
 <body style="background-color:rgb(43, 48, 59);" class="centered-wrapper">
-    <h1 style="color:#0094FF;text-align: center;">UMass Boston Prerequisites Chart<h1>
+    <h1 style="color:#0094FF;text-align: center;">UMass Boston Prerequisites Chart [Post Spring 2023]<h1>
             <div class="main">
                 <div class="wrapper">
                     <script type="module">
@@ -35,22 +36,34 @@ this is a test-->
                                 direction LR
                                 subgraph Core_Classes_Prerequisites
                                     direction TB
+                                    subgraph Info
+                                        CSPRE["MATH130 with a grade of B or better in the previous semester\nOr ALEKS placement for MATH140"]
+                                    end
                                     subgraph Computer_Science
                                         direction TB
+                                        
                                         CS110("CS110 \nIntro to Computing")
                                         CS210("CS210 \nIntermediate \nComputing \nW/ Data Stuctures")
-                                        CS220("CS220 \nApplied\nDiscrete\nMathematics")
                                         CS240("CS240 \nProgramming\nin C\n\n")
-                                        CS341("CS341 \nComputer\nArchitecture\n& Organization")
+                                        CS220("CS220 \nApplied\nDiscrete\nMathematics")
                                         CS310("CS310 \nAdvanced\nData Structures\n& Algorithms")
+                                        CS341("CS341 \nComputer\nArchitecture\n& Organization")
                                         CS410("CS410* \nIntro to\nSoftware\nEngineering")
                                         CS420("CS420 \nIntro to\nTheory of\nComputation")
-                                        CS444("CS444 \nIntro to\nOperating\nSystems")
-                                        CS450("CS450 \nStructure of\nHigher level\nLanguages")
+                                        CS449("CS449 \nIntro to\nComputer\nSecurity")
                                         CS451("CS451 \n\nCompilers\n\n")
                                         CS285("CS285L \nSocial Issues\n& Ethics in\nComputing")
+
+                                        subgraph Co-Req
+                                            direction LR
+                                            CS444("CS444 \nIntro to\nOperating\nSystems")
+                                            CS446("CS446 \nIntro to\nInter\nNetworking")
+                                            CS444 -.- CS446
+                                        end
+
                                         CS400("CS4XX* \nAny 400+\nLevel\nCourse")
                                         CS401("CS4XX* \nAny 400+\nLevel\nCourse")
+                                        
                                         CS110 --> CS240
                                         CS110 --> CS210
                                         CS110 --> CS220
@@ -58,22 +71,16 @@ this is a test-->
                                         CS210 --> CS310
                                         CS220 --> CS310
                                         CS240 --> CS310
-                                        CS310 --> CS444
-                                        CS341 --> CS444
+                                        CS341 ---> Co-Req
+                                        CS310 ---> Co-Req
+                                        CS341 --> CS449
+                                        CS310 --> CS449
+                                        CS449 ~~~ CS285
                                         CS310 --> CS410
-                                        CS220 --> CS450
-                                        CS310 --> CS451
-                                        CS310 --> CS450
                                         CS220 --> CS420
-                                        CS420 ---> CS451
-                                        CS444 ~~~ CS285
-                                        CS410 ~~~ CS400
-                                        CS410 ~~~ CS401
+                                        CS420 --> CS451
+                                        CS310 --> CS451
                                     end
-                                    subgraph Info
-                                        CSPRE["MATH130 with a grade of B or better in the previous semester\nOr ALEKS placement for MATH140"]
-                                    end 
-                                        MATH140 --> CS220
                                     subgraph Math_&_Physics
                                         direction TB
                                         subgraph Math
@@ -84,8 +91,7 @@ this is a test-->
                                             MATH345("MATH345\nProbabilities &\nStatistics")
                                             MATH140 --> MATH260
                                             MATH140 --> MATH141
-                                            MATH141 --> MATH345
-                                            
+                                            MATH141 --> MATH345        
                                         end
                                         subgraph Physics
                                             direction TB
@@ -106,6 +112,7 @@ this is a test-->
                                         MATH140 -.Pre/Co Req.-> PHYSIC113
                                         MATH141 -.Pre/Co Req.-> PHYSIC114
                                     end
+                                    MATH140 --> CS220
                                     CSPRE --> CS110
                                     CSPRE --> MATH140
                                     subgraph Notes:
@@ -137,24 +144,10 @@ this is a test-->
                                             CS438PRE("(CS310)")
                                             CS442PRE("(CS310)")
                                             CS443PRE("(CS310)")
-                                            CS446PRE("(CS310, CS341, CoReq:CS444)")
-                                            CS449PRE("(CS310, CS341)")
+                                            CS450PRE("(CS220, CS310)")
                                             CS460PRE("(CS310, MATH260)")
                                             CS461PRE("(CS310)")
                                             CS470PRE("(CS220, CS310)")
-                                            %% CS411PRE ~~~ CS430PRE
-                                            %% CS430PRE ~~~ CS433PRE
-                                            %% CS433PRE ~~~ CS436PRE
-                                            %% CS436PRE ~~~ CS437PRE
-                                            %% CS437PRE ~~~ CS438PRE
-                                            %% CS438PRE ~~~ CS442PRE
-                                            %% CS442PRE ~~~ CS443PRE
-                                            %% CS443PRE ~~~ CS446PRE
-                                            %% CS446PRE ~~~ CS449PRE
-                                            %% CS449PRE ~~~ CS460PRE
-                                            %% CS460PRE ~~~ CS461PRE
-                                            %% CS461PRE ~~~ CS470PRE
-                                            %% CS470PRE ~~~ CS4XXPRE
                                     end
                                     subgraph CS_Electives
                                         direction TB
@@ -166,25 +159,11 @@ this is a test-->
                                         CS438("CS438: Applied Machine Learning")
                                         CS442("CS442: Cybersecurity in the Internet of Things")
                                         CS443("CS443: Mobile Applications")
-                                        CS446("CS446: Introduction to Internetworking")
-                                        CS449("CS449: Introduction to Computer Security")
+                                        CS450("CS450: Structure of Higher Level Languages")
                                         CS460("CS460: Graphics")
                                         CS461("CS461: Computer Games Programming")
                                         CS470("CS470: Introduction to Artificial Intelligence")
                                         CS4XX("CS4XX: Other CS course")
-                                        %% CS411 ~~~ CS430 
-                                        %% CS430 ~~~ CS433 
-                                        %% CS433 ~~~ CS436 
-                                        %% CS436 ~~~ CS437 
-                                        %% CS437 ~~~ CS438 
-                                        %% CS438 ~~~ CS442 
-                                        %% CS442 ~~~ CS443 
-                                        %% CS443 ~~~ CS446 
-                                        %% CS446 ~~~ CS449 
-                                        %% CS449 ~~~ CS460 
-                                        %% CS460 ~~~ CS461 
-                                        %% CS461 ~~~ CS470 
-                                        %% CS470 ~~~ CS4XX
                                     end
                                     CS_Website ~~~ CS442PRE
                                     CS411PRE --> CS411
@@ -195,14 +174,12 @@ this is a test-->
                                     CS438PRE --> CS438
                                     CS442PRE --> CS442
                                     CS443PRE --> CS443
-                                    CS446PRE --> CS446
-                                    CS449PRE --> CS449
+                                    CS450PRE --> CS450
                                     CS460PRE --> CS460
                                     CS461PRE --> CS461
                                     CS470PRE --> CS470
                                 end
                             end
-                                Computer_Science ~~~ Math_&_Physics
                                 Core_Classes_Prerequisites ~~~ Other_Links
                                 click CS110 "https://www.cs.umb.edu/academics/courses/CS110"
                                 click CS210 "https://www.cs.umb.edu/academics/courses/CS210"

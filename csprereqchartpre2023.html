@@ -1,0 +1,251 @@
+<!-- Created by Estevao Lordeiro. Last update: 02/26/2023 -->
+<html>
+<head>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .main {
+            height: 100%;
+            width: 100%;
+            display: table;
+        }
+
+        .wrapper {
+            display: table-cell;
+            height: 100%;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body style="background-color:rgb(43, 48, 59);" class="centered-wrapper">
+    <h1 style="color:#0094FF;text-align: center;">UMass Boston Prerequisites Chart [Pre Spring 2023]<h1>
+            <div class="main">
+                <div class="wrapper">
+                    <script type="module">
+                        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+                        mermaid.initialize({ startOnLoad: true });
+                    </script>
+                    <pre class="mermaid">
+                        %%{init: {'theme': 'dark' }}%%
+                        flowchart LR
+                            subgraph UMass_Boston_CS_Prerequisites
+                                direction LR
+                                subgraph Core_Classes_Prerequisites
+                                    direction TB
+                                    subgraph Computer_Science
+                                        direction TB
+                                        CS110("CS110 \nIntro to Computing")
+                                        CS210("CS210 \nIntermediate \nComputing \nW/ Data Stuctures")
+                                        CS220("CS220 \nApplied\nDiscrete\nMathematics")
+                                        CS240("CS240 \nProgramming\nin C\n\n")
+                                        CS341("CS341 \nComputer\nArchitecture\n& Organization")
+                                        CS310("CS310 \nAdvanced\nData Structures\n& Algorithms")
+                                        CS410("CS410* \nIntro to\nSoftware\nEngineering")
+                                        CS420("CS420 \nIntro to\nTheory of\nComputation")
+                                        CS444("CS444 \nIntro to\nOperating\nSystems")
+                                        CS450("CS450 \nStructure of\nHigher level\nLanguages")
+                                        CS451("CS451 \n\nCompilers\n\n")
+                                        CS285("CS285L \nSocial Issues\n& Ethics in\nComputing")
+                                        CS400("CS4XX* \nAny 400+\nLevel\nCourse")
+                                        CS401("CS4XX* \nAny 400+\nLevel\nCourse")
+                                        CS110 --> CS240
+                                        CS110 --> CS210
+                                        CS110 --> CS220
+                                        CS240 --> CS341
+                                        CS210 --> CS310
+                                        CS220 --> CS310
+                                        CS240 --> CS310
+                                        CS310 --> CS444
+                                        CS341 --> CS444
+                                        CS310 --> CS410
+                                        CS220 --> CS450
+                                        CS310 --> CS451
+                                        CS310 --> CS450
+                                        CS220 --> CS420
+                                        CS420 ---> CS451
+                                        CS444 ~~~ CS285
+                                        CS410 ~~~ CS400
+                                        CS410 ~~~ CS401
+                                    end
+                                    subgraph Info
+                                        CSPRE["MATH130 with a grade of B or better in the previous semester\nOr ALEKS placement for MATH140"]
+                                    end 
+                                        MATH140 --> CS220
+                                    subgraph Math_&_Physics
+                                        direction TB
+                                        subgraph Math
+                                            direction TB
+                                            MATH140("MATH140\nCalculus I\n\n")
+                                            MATH141("MATH141\nCalculus II\n\n")
+                                            MATH260("MATH260\nLinear\nAlgebra")
+                                            MATH345("MATH345\nProbabilities &\nStatistics")
+                                            MATH140 --> MATH260
+                                            MATH140 --> MATH141
+                                            MATH141 --> MATH345
+                                            
+                                        end
+                                        subgraph Physics
+                                            direction TB
+                                            subgraph Pre/Co Req
+                                                direction LR
+                                                PHYSIC113("PHYSIC113\nPhysics I\n\n")
+                                                PHYSIC181("PHYSIC181\nPhysics I\nLAB")
+                                            end
+                                            subgraph Pre/Co Req
+                                                direction LR
+                                                PHYSIC114("PHYSIC114\nPhysics II\n\n")
+                                                PHYSIC182("PHYSIC182\nPhysics II\nLAB")
+                                                
+                                            end
+                                                PHYSIC113 --> PHYSIC114
+                                                PHYSIC181 --> PHYSIC182
+                                        end
+                                        MATH140 -.Pre/Co Req.-> PHYSIC113
+                                        MATH141 -.Pre/Co Req.-> PHYSIC114
+                                    end
+                                    CSPRE --> CS110
+                                    CSPRE --> MATH140
+                                    subgraph Notes:
+                                        NOTE1{{"CS410 requires any other CS400+ course as a prerequisite"}}
+                                        NOTE2{{"Prerequisites for CS4xx Electives listed to the right -->"}}
+                                    end
+                                end
+                                subgraph Other_Links
+                                    direction RL
+                                    subgraph CS_Website
+                                        direction TB
+                                        CSHOME["CS -> Home Page"]
+                                        CSPORTAL["CS -> Portal"]
+                                        CSSCHED["CS -> Course Schedule"]
+                                        CSCOURSES["CS -> Course List"]
+                                        CSFACULTY["CS -> Faculty"]
+                                        CSHOME ~~~ CSPORTAL
+                                        CSPORTAL ~~~ CSSCHED
+                                        CSSCHED ~~~ CSCOURSES
+                                        CSCOURSES ~~~ CSFACULTY
+                                    end
+                                    subgraph Electives_Prereqs
+                                            direction TB
+                                            CS411PRE("(CS310)")
+                                            CS430PRE("(CS310)")
+                                            CS433PRE("(CS310, MATH260, MATH345)")
+                                            CS436PRE("(CS430)")
+                                            CS437PRE("(CS430)")
+                                            CS438PRE("(CS310)")
+                                            CS442PRE("(CS310)")
+                                            CS443PRE("(CS310)")
+                                            CS446PRE("(CS310, CS341, CoReq:CS444)")
+                                            CS449PRE("(CS310, CS341)")
+                                            CS460PRE("(CS310, MATH260)")
+                                            CS461PRE("(CS310)")
+                                            CS470PRE("(CS220, CS310)")
+                                            %% CS411PRE ~~~ CS430PRE
+                                            %% CS430PRE ~~~ CS433PRE
+                                            %% CS433PRE ~~~ CS436PRE
+                                            %% CS436PRE ~~~ CS437PRE
+                                            %% CS437PRE ~~~ CS438PRE
+                                            %% CS438PRE ~~~ CS442PRE
+                                            %% CS442PRE ~~~ CS443PRE
+                                            %% CS443PRE ~~~ CS446PRE
+                                            %% CS446PRE ~~~ CS449PRE
+                                            %% CS449PRE ~~~ CS460PRE
+                                            %% CS460PRE ~~~ CS461PRE
+                                            %% CS461PRE ~~~ CS470PRE
+                                            %% CS470PRE ~~~ CS4XXPRE
+                                    end
+                                    subgraph CS_Electives
+                                        direction TB
+                                        CS411("CS411: Competitive Programming")
+                                        CS430("CS430: Database Application Development")
+                                        CS433("CS433: Big Data Analytics")
+                                        CS436("CS436: Database Application Development")
+                                        CS437("CS437: Database Backed Web Sites Services")
+                                        CS438("CS438: Applied Machine Learning")
+                                        CS442("CS442: Cybersecurity in the Internet of Things")
+                                        CS443("CS443: Mobile Applications")
+                                        CS446("CS446: Introduction to Internetworking")
+                                        CS449("CS449: Introduction to Computer Security")
+                                        CS460("CS460: Graphics")
+                                        CS461("CS461: Computer Games Programming")
+                                        CS470("CS470: Introduction to Artificial Intelligence")
+                                        CS4XX("CS4XX: Other CS course")
+                                        %% CS411 ~~~ CS430 
+                                        %% CS430 ~~~ CS433 
+                                        %% CS433 ~~~ CS436 
+                                        %% CS436 ~~~ CS437 
+                                        %% CS437 ~~~ CS438 
+                                        %% CS438 ~~~ CS442 
+                                        %% CS442 ~~~ CS443 
+                                        %% CS443 ~~~ CS446 
+                                        %% CS446 ~~~ CS449 
+                                        %% CS449 ~~~ CS460 
+                                        %% CS460 ~~~ CS461 
+                                        %% CS461 ~~~ CS470 
+                                        %% CS470 ~~~ CS4XX
+                                    end
+                                    CS_Website ~~~ CS442PRE
+                                    CS411PRE --> CS411
+                                    CS430PRE --> CS430
+                                    CS433PRE --> CS433
+                                    CS436PRE --> CS436
+                                    CS437PRE --> CS437
+                                    CS438PRE --> CS438
+                                    CS442PRE --> CS442
+                                    CS443PRE --> CS443
+                                    CS446PRE --> CS446
+                                    CS449PRE --> CS449
+                                    CS460PRE --> CS460
+                                    CS461PRE --> CS461
+                                    CS470PRE --> CS470
+                                end
+                            end
+                                Computer_Science ~~~ Math_&_Physics
+                                Core_Classes_Prerequisites ~~~ Other_Links
+                                click CS110 "https://www.cs.umb.edu/academics/courses/CS110"
+                                click CS210 "https://www.cs.umb.edu/academics/courses/CS210"
+                                click CS220 "https://www.cs.umb.edu/academics/courses/CS220"
+                                click CS240 "https://www.cs.umb.edu/academics/courses/CS240"
+                                click CS341 "https://www.cs.umb.edu/academics/courses/CS341"
+                                click CS310 "https://www.cs.umb.edu/academics/courses/CS310"
+                                click CS410 "https://www.cs.umb.edu/academics/courses/CS410"
+                                click CS420 "https://www.cs.umb.edu/academics/courses/CS420"
+                                click CS444 "https://www.cs.umb.edu/academics/courses/CS444"
+                                click CS450 "https://www.cs.umb.edu/academics/courses/CS450"
+                                click CS451 "https://www.cs.umb.edu/academics/courses/CS451"
+                                click CS285 "https://www.cs.umb.edu/academics/courses/CS285L"
+                                click CS411 "https://www.cs.umb.edu/academics/courses/CS411"
+                                click CS430 "https://www.cs.umb.edu/academics/courses/CS430"
+                                click CS433 "https://www.cs.umb.edu/academics/courses/CS433"
+                                click CS436 "https://www.cs.umb.edu/academics/courses/CS436"
+                                click CS437 "https://www.cs.umb.edu/academics/courses/CS437"
+                                click CS438 "https://www.cs.umb.edu/academics/courses/CS438"
+                                click CS442 "https://www.cs.umb.edu/academics/courses/CS442"
+                                click CS443 "https://www.cs.umb.edu/academics/courses/CS443"
+                                click CS446 "https://www.cs.umb.edu/academics/courses/CS446"
+                                click CS449 "https://www.cs.umb.edu/academics/courses/CS449"
+                                click CS460 "https://www.cs.umb.edu/academics/courses/CS460"
+                                click CS461 "https://www.cs.umb.edu/academics/courses/CS461"
+                                click CS470 "https://www.cs.umb.edu/academics/courses/CS470"
+                                click MATH140 "https://www.math.umb.edu/courses/course_page.php?id=9"
+                                click MATH141 "https://www.math.umb.edu/courses/course_page.php?id=10"
+                                click MATH260 "https://www.math.umb.edu/courses/course_page.php?id=15"
+                                click MATH345 "https://www.math.umb.edu/courses/course_page.php?id=19"
+                                click PHYSIC113 "https://www.physics.umb.edu/Classes/phys_113.html"
+                                click PHYSIC114 "https://www.physics.umb.edu/Classes/phys_114.html"
+                                click PHYSIC181 "https://www.physics.umb.edu/Classes/phys_181.html"
+                                click PHYSIC182 "https://www.physics.umb.edu/Classes/phys_182.html"
+                                click CSHOME "https://www.cs.umb.edu"
+                                click CSPORTAL "https://portal.cs.umb.edu"
+                                click CSSCHED "https://www.cs.umb.edu/course-schedule"
+                                click CSCOURSES "https://www.cs.umb.edu/courses"
+                                click CSFACULTY "https://www.cs.umb.edu/faculty"
+                    </pre>
+                </div>
+            </div>
+</body>
+
+</html>
