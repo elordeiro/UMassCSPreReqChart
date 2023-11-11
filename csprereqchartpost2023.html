@@ -54,13 +54,6 @@
                                         CS451("CS451 \n\nCompilers\n\n")
                                         CS285("CS285L \nSocial Issues\n& Ethics in\nComputing")
 
-                                        subgraph Co-Req
-                                            direction LR
-                                            CS444("CS444 \nIntro to\nOperating\nSystems")
-                                            CS446("CS446 \nIntro to\nInter\nNetworking")
-                                            CS444 -.- CS446
-                                        end
-
                                         CS400("CS4XX* \nAny 400+\nLevel\nCourse")
                                         CS401("CS4XX* \nAny 400+\nLevel\nCourse")
                                         
@@ -68,19 +61,27 @@
                                         CS110 --> CS210
                                         CS110 --> CS220
                                         CS240 --> CS341
+                                        CS240 --> CS310
                                         CS210 --> CS310
                                         CS220 --> CS310
-                                        CS240 --> CS310
-                                        CS341 ---> Co-Req
-                                        CS310 ---> Co-Req
-                                        CS341 --> CS449
-                                        CS310 --> CS449
-                                        CS449 ~~~ CS285
-                                        CS310 --> CS410
                                         CS220 --> CS420
-                                        CS420 --> CS451
+                                        CS310 --> Co-Req
+                                        CS310 --> CS449
+                                        CS310 --> CS410
                                         CS310 --> CS451
+                                        CS449 ~~~ CS285
+                                        CS420 --> CS451
+                                        CS341 --> CS449
+                                        CS341 ---> Co-Req
+                                        
                                     end
+                                    subgraph Co-Req
+                                        direction LR
+                                        CS444("CS444 \nIntro to\nOperating\nSystems")
+                                        CS446("CS446 \nIntro to\nInter\nNetworking")
+                                        CS444 -.- CS446
+                                    end
+                                    
                                     subgraph Math_&_Physics
                                         direction TB
                                         subgraph Math
@@ -89,6 +90,7 @@
                                             MATH141("MATH141\nCalculus II\n\n")
                                             MATH260("MATH260\nLinear\nAlgebra")
                                             MATH345("MATH345\nProbabilities &\nStatistics")
+                                            MATH140 --> CS220
                                             MATH140 --> MATH260
                                             MATH140 --> MATH141
                                             MATH141 --> MATH345        
@@ -112,7 +114,7 @@
                                         MATH140 -.Pre/Co Req.-> PHYSIC113
                                         MATH141 -.Pre/Co Req.-> PHYSIC114
                                     end
-                                    MATH140 --> CS220
+                                    
                                     CSPRE --> CS110
                                     CSPRE --> MATH140
                                     subgraph Notes:
