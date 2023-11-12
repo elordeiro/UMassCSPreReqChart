@@ -53,6 +53,10 @@
         function darkMode() {
             window.location.href = 'csprereqchartpre2023Dark.html';
         }
+
+        function goToPost() {
+            window.location.href = 'csprereqchartpost2023.html';
+        }
     </script>
 </head>
 
@@ -61,6 +65,7 @@
             <div class="main">
                 <div class="wrapper">
                     <button onclick="darkMode()">Dark Mode</button>
+                    <button onclick="goToPost()">Click Here for Post Spring 2023 Chart</button>
                     <pre id='chart' class="mermaid">
                         flowchart LR
                             subgraph UMass_Boston_CS_Prerequisites
