@@ -1,11 +1,11 @@
-    <!-- Created by Estevao Lordeiro. Last update: 11/12/2023 -->
+<!-- Created by Estevao Lordeiro. Last update: 11/12/2023 -->
     <html>
     <head>
         <style>
             body {
                 height: 100%;
                 justify-content: center;
-                background-color: rgb(255, 255, 225);
+                background-color: rgb(43, 48, 59);
                 transition: background-color 0.5s;
             }
 
@@ -20,16 +20,24 @@
             }
 
             table {
-                width:50%;
+                background-color: rgb(71, 73, 73);
+                width: 50%;
                 text-align: center;
-                color:rgb(39, 89, 135);
+                color: #ffffff;
                 font-size: 20px;
                 font-family: Arial, Helvetica, sans-serif;
-                border: 2px solid rgb(39, 89, 135); 
+                border: 2px solid #0094FF;
                 border-collapse: collapse;
                 margin-left: auto;
                 margin-right: auto;
             }
+
+            .header {
+                color:#0094FF;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
             .main {
                 height: 100%;
                 width: 100%;
@@ -41,29 +49,41 @@
                 height: 100%;
                 /* vertical-align: middle; */
             }
+
+            .button {
+                background-color: blue;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 10px 20px;
+                border-radius: 5px;
+            }
+
+            .button:hover {
+                background-color: #0094FF;
+                color: white;
+            }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.js"></script>
         <script>
             mermaid.initialize({
-                theme: 'neutral'
+                theme: 'dark'
             });
     
-            function darkMode() {
-                window.location.href = 'csprereqchartpost2023Dark.html';
+            function lightMode() {
+                window.location.href = 'Post2023Light.html';
             }
 
             function goToPre() {
-                window.location.href = 'csprereqchartpre2023.html';
+                window.location.href = 'Pre2023Dark.html';
             }
         </script>
     </head>
 
-    <body class="centered-wrapper">
-        <h1 style="color:rgb(39, 89, 135);text-align: center;">UMass Boston Prerequisites Chart [Post Spring 2023]<h1>
+    <body style="background-color:rgb(43, 48, 59);" class="centered-wrapper">
+        <h1 class="header">UMass Boston Prerequisites Chart</h1>
+        <h3 class="header">Post Spring 2023</h3>
                 <div class="main">
                     <div class="wrapper">
-                        <button onclick="darkMode()">Dark Mode</button>
-                        <button onclick="goToPre()">Click Here for Pre Spring 2023 Chart</button>
                         <pre class="mermaid">
                             flowchart LR
                                 subgraph UMass_Boston_CS_Prerequisites
@@ -258,94 +278,57 @@
                         </pre>
                     </div>
                 </div>
-        <h2 style="color:rgb(39, 89, 135);text-align: center;">Sample Program Progression<h2>
-            <table>
-                <tr style="border: 1px solid rgb(39, 89, 135);">
-                    <th>Freshman Year</th>
-                    <th>Sophomore Year</th>
-                    <th>Junior Year</th>
-                    <th>Senior Year</th>
-                </tr>
-                <colgroup>
-                    <col style="border: 1px solid rgb(39, 89, 135);">
-                    <col style="border: 1px solid rgb(39, 89, 135);">
-                    <col style="border: 1px solid rgb(39, 89, 135);">
-                    <col style="border: 1px solid rgb(39, 89, 135);">
-                </colgroup>
-                <tr style="border: 1px solid rgb(39, 89, 135);">
-                    <th>Semester 1</td>
-                    <th>Semester 3</td>
-                    <th>Semester 5</td>
-                    <th>Semester 7</td>
-                </tr>
-                <tr>
-                    <td>CS 110</td>
-                    <td>CS 220</td>
-                    <td>CS 420</td>
-                    <td>CS 410</td>
-                    
-                </tr>
-                <tr>
-                    <td>MATH 140</td>
-                    <td>CS 240</td>
-                    <td>CS 444</td>
-                    <td>CS Elective</td>
-                </tr>
-                <tr>
-                    <td>GEN ED</td>
-                    <td>PHYSIC 114</td>
-                    <td>MATH 345</td>
-                    <td>GEN ED</td>
-                </tr>
-                <tr>
-                    <td>GEN ED</td>
-                    <td>PHYSIC 182</td>
-                    <td>GEN ED</td>
-                    <td>GEN ED</td>
-                </tr>
-                <tr>
-                    <td>GEN ED</td>
-                    <td>GEN ED</td>
-                    <td>GEN ED</td>
-                    <td>GEN ED</td>
-                </tr>
-                <tr style="border: 1px solid rgb(39, 89, 135);">
-                    <th>Semester 2</td>
-                        <th>Semester 4</td>
-                        <th>Semester 6</td>
-                        <th>Semester 8</td>
+                <button class="button" onclick="lightMode()">Light Mode</button>
+                <button class="button" onclick="goToPre()">Click Here for Pre Spring 2023 Chart</button>
+            <h2 class="header">Sample Program Progression</body>h2>
+                <table>
+                    <tr style="border: 1px solid #0094FF;">
+                        <th>Freshman Year</th> <th>Sophomore Year</th> <th>Junior Year</th> <th>Senior Year</th>
+                    </tr>
+                    <colgroup>
+                        <col style="border: 1px solid #0094FF;">
+                        <col style="border: 1px solid #0094FF;">
+                        <col style="border: 1px solid #0094FF;">
+                        <col style="border: 1px solid #0094FF;">
+                    </colgroup>
+                    <tr style="border: 1px solid #0094FF;">
+                        <th>Semester 1</td> <th>Semester 3</td> <th>Semester 5</td> <th>Semester 7</td>
                     </tr>
                     <tr>
-                        <td>CS 210</td>
-                        <td>CS 310</td>
-                        <td>CS 446</td>
-                        <td>CS 285L</td>
+                        <td>CS 110</td>     <td>CS 220</td>     <td>CS 420</td>     <td>CS 410</td>
+                        
                     </tr>
                     <tr>
-                        <td>MATH 141</td>
-                        <td>CS 341</td>
-                        <td>CS 451</td>
-                        <td>CS Elective</td>
+                        <td>MATH 140</td>   <td>CS 240</td>     <td>CS 444</td>     <td>CS Elective</td>
                     </tr>
                     <tr>
-                        <td>PHYSIC 113</td>
-                        <td>MATH 260</td>
-                        <td>CS 449</td>
-                        <td>GEN ED</td>
+                        <td>GEN ED</td>     <td>PHYSIC 114</td> <td>MATH 345</td>   <td>GEN ED</td>
                     </tr>
                     <tr>
-                        <td>PHYSIC 181</td>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
+                        <td>GEN ED</td>     <td>PHYSIC 182</td> <td>GEN ED</td>     <td>GEN ED</td>
                     </tr>
                     <tr>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
+                        <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>
                     </tr>
-            </table>
-            </br></br></br>
+                    <tr style="border: 1px solid #0094FF;">
+                        <th>Semester 2</td> <th>Semester 4</td> <th>Semester 6</td> <th>Semester 8</td>
+                    </tr>
+                    <tr>
+                        <td>CS 210</td>     <td>CS 310</td>     <td>CS 446</td>     <td>CS 285L</td>
+                    </tr>
+                    <tr>
+                        <td>MATH 141</td>   <td>CS 341</td>     <td>CS 451</td>     <td>CS Elective</td>
+                    </tr>
+                    <tr>
+                        <td>PHYSIC 113</td> <td>MATH 260</td>   <td>CS 449</td>     <td>GEN ED</td>
+                    </tr>
+                    <tr>
+                        <td>PHYSIC 181</td> <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>
+                    </tr>
+                    <tr>
+                        <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>
+                    </tr>
+                </table>
+                </br></br></br>
     </body>
     </html>

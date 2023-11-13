@@ -1,35 +1,46 @@
-<!-- Created by Estevao Lordeiro. Last update: 11/12/2023 -->
+    <!-- Created by Estevao Lordeiro. Last update: 11/12/2023 -->
     <html>
     <head>
         <style>
             body {
                 height: 100%;
                 justify-content: center;
-                background-color: rgb(43, 48, 59);
+                background-color: rgb(217, 235, 252);
                 transition: background-color 0.5s;
             }
 
-            body.light-mode {
-                background-color: white;
-                color: black;
-            }
-
-            body.dark-mode {
-                background-color: black;
-                color: white;
-            }
-
             table {
+                background-color: rgb(252, 252, 252);
                 width:50%;
                 text-align: center;
-                color:#0094FF;
+                color:rgb(39, 89, 135);
                 font-size: 20px;
                 font-family: Arial, Helvetica, sans-serif;
-                border: 2px solid #0094FF;
+                border: 2px solid rgb(39, 89, 135); 
                 border-collapse: collapse;
                 margin-left: auto;
                 margin-right: auto;
             }
+
+            .button {
+                background-color: #0094FF;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 10px 20px;
+                border-radius: 5px;
+            }
+
+            .button:hover {
+                background-color: blue;
+                color: white;
+            }
+
+            .header {
+                color: rgb(39, 89, 135);
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            
             .main {
                 height: 100%;
                 width: 100%;
@@ -45,25 +56,24 @@
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.js"></script>
         <script>
             mermaid.initialize({
-                theme: 'dark'
+                theme: 'neutral'
             });
     
-            function lightMode() {
-                window.location.href = 'csprereqchartpost2023.html';
+            function darkMode() {
+                window.location.href = 'Post2023Dark.html';
             }
 
             function goToPre() {
-                window.location.href = 'csprereqchartpre2023Dark.html';
+                window.location.href = 'Pre2023Light.html';
             }
         </script>
     </head>
 
-    <body style="background-color:rgb(43, 48, 59);" class="centered-wrapper">
-        <h1 style="color:#0094FF;text-align: center;">UMass Boston Prerequisites Chart [Post Spring 2023]<h1>
+    <body class="centered-wrapper">
+        <h1 class="header">UMass Boston Prerequisites Chart</h1>
+        <h3 class="header">Post Spring 2023</h3>
                 <div class="main">
                     <div class="wrapper">
-                        <button onclick="lightMode()">Light Mode</button>
-                        <button onclick="goToPre()">Click Here for Pre Spring 2023 Chart</button>
                         <pre class="mermaid">
                             flowchart LR
                                 subgraph UMass_Boston_CS_Prerequisites
@@ -258,94 +268,57 @@
                         </pre>
                     </div>
                 </div>
-            <h2 style="color:#0094FF;text-align: center;">Sample Program Progression<h2>
-                <table>
-                    <tr style="border: 1px solid #0094FF;">
-                        <th>Freshman Year</th>
-                        <th>Sophomore Year</th>
-                        <th>Junior Year</th>
-                        <th>Senior Year</th>
-                    </tr>
-                    <colgroup>
-                        <col style="border: 1px solid #0094FF;">
-                        <col style="border: 1px solid #0094FF;">
-                        <col style="border: 1px solid #0094FF;">
-                        <col style="border: 1px solid #0094FF;">
-                    </colgroup>
-                    <tr style="border: 1px solid #0094FF;">
-                        <th>Semester 1</td>
-                        <th>Semester 3</td>
-                        <th>Semester 5</td>
-                        <th>Semester 7</td>
-                    </tr>
-                    <tr>
-                        <td>CS 110</td>
-                        <td>CS 220</td>
-                        <td>CS 420</td>
-                        <td>CS 410</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>MATH 140</td>
-                        <td>CS 240</td>
-                        <td>CS 444</td>
-                        <td>CS Elective</td>
-                    </tr>
-                    <tr>
-                        <td>GEN ED</td>
-                        <td>PHYSIC 114</td>
-                        <td>MATH 345</td>
-                        <td>GEN ED</td>
-                    </tr>
-                    <tr>
-                        <td>GEN ED</td>
-                        <td>PHYSIC 182</td>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                    </tr>
-                    <tr>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                    </tr>
-                    <tr style="border: 1px solid #0094FF;">
-                        <th>Semester 2</td>
-                        <th>Semester 4</td>
-                        <th>Semester 6</td>
-                        <th>Semester 8</td>
-                    </tr>
-                    <tr>
-                        <td>CS 210</td>
-                        <td>CS 310</td>
-                        <td>CS 446</td>
-                        <td>CS 285L</td>
-                    </tr>
-                    <tr>
-                        <td>MATH 141</td>
-                        <td>CS 341</td>
-                        <td>CS 451</td>
-                        <td>CS Elective</td>
-                    </tr>
-                    <tr>
-                        <td>PHYSIC 113</td>
-                        <td>MATH 260</td>
-                        <td>CS 449</td>
-                        <td>GEN ED</td>
-                    </tr>
-                    <tr>
-                        <td>PHYSIC 181</td>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                    </tr>
-                    <tr>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                        <td>GEN ED</td>
-                    </tr>
-                </table>
-                </br></br></br>
+            <button class="button" onclick="darkMode()">Dark Mode</button>
+            <button class="button" onclick="goToPre()">Click Here for Pre Spring 2023 Chart</button>
+        <h2 class="header">Sample Program Progression</h2>
+            <table>
+                <tr style="border: 1px solid #0094FF;">
+                    <th>Freshman Year</th> <th>Sophomore Year</th> <th>Junior Year</th> <th>Senior Year</th>
+                </tr>
+                <colgroup>
+                    <col style="border: 1px solid #0094FF;">
+                    <col style="border: 1px solid #0094FF;">
+                    <col style="border: 1px solid #0094FF;">
+                    <col style="border: 1px solid #0094FF;">
+                </colgroup>
+                <tr style="border: 1px solid #0094FF;">
+                    <th>Semester 1</td> <th>Semester 3</td> <th>Semester 5</td> <th>Semester 7</td>
+                </tr>
+                <tr>
+                    <td>CS 110</td>     <td>CS 220</td>     <td>CS 420</td>     <td>CS 410</td>
+                    
+                </tr>
+                <tr>
+                    <td>MATH 140</td>   <td>CS 240</td>     <td>CS 444</td>     <td>CS Elective</td>
+                </tr>
+                <tr>
+                    <td>GEN ED</td>     <td>PHYSIC 114</td> <td>MATH 345</td>   <td>GEN ED</td>
+                </tr>
+                <tr>
+                    <td>GEN ED</td>     <td>PHYSIC 182</td> <td>GEN ED</td>     <td>GEN ED</td>
+                </tr>
+                <tr>
+                    <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>
+                </tr>
+                <tr style="border: 1px solid #0094FF;">
+                    <th>Semester 2</td> <th>Semester 4</td> <th>Semester 6</td> <th>Semester 8</td>
+                </tr>
+                <tr>
+                    <td>CS 210</td>     <td>CS 310</td>     <td>CS 446</td>     <td>CS 285L</td>
+                </tr>
+                <tr>
+                    <td>MATH 141</td>   <td>CS 341</td>     <td>CS 451</td>     <td>CS Elective</td>
+                </tr>
+                <tr>
+                    <td>PHYSIC 113</td> <td>MATH 260</td>   <td>CS 449</td>     <td>GEN ED</td>
+                </tr>
+                <tr>
+                    <td>PHYSIC 181</td> <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>
+                </tr>
+                <tr>
+                    <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>
+                </tr>
+            </table>
+            </br></br></br>
     </body>
     </html>
