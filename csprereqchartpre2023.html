@@ -24,6 +24,13 @@
             margin-right: auto;
         }
 
+        @media screen and (max-width: 600px) {
+            table {
+                width: 100%;
+                font-size: 15px;
+            }
+        }
+        
         .button {
             background-color: #0094FF;
             color: white;
@@ -54,6 +61,7 @@
             height: 100%;
             /* vertical-align: middle; */
         }
+
     </style>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.js"></script>
     <script>
@@ -77,9 +85,9 @@
             <div class="main">
                 <div class="wrapper">
                     <pre id='chart' class="mermaid">
-                        flowchart LR 
+                        flowchart LR
                         subgraph UMass_Boston_CS_Prerequisites
-                            direction LR
+                        direction LR
                             subgraph Core_Classes_Prerequisites
                                 direction TB
                                 subgraph Computer_Science
@@ -300,7 +308,7 @@
                     <button class="button" onclick="darkMode()">Dark Mode</button>
                     <button class="button" onclick="goToPost()">Click Here for Post Spring 2023 Chart</button>
             <h2 class="header">Sample Program Progression<h2>
-        <table>
+        <table id="table">
             <tr style="border: 1px solid #0094FF;">
                 <th>Freshman Year</th><th>Sophomore Year</th><th>Junior Year</th><th>Senior Year</th>
             </tr>
