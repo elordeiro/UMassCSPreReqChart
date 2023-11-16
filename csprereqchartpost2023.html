@@ -11,7 +11,7 @@
 
             table {
                 background-color: rgb(252, 252, 252);
-                width:50%;
+                width:75%;
                 text-align: center;
                 color:rgb(39, 89, 135);
                 font-size: 20px;
@@ -98,8 +98,6 @@
                                             CS285("CS285L \nSocial Issues\n& Ethics in\nComputing")
                                             CS400("CS4XX* \nAny 400+\nLevel\nCourse")
                                             CS401("CS4XX* \nAny 400+\nLevel\nCourse")
-                                            
-                                            
                                             CS341 ---> CS449
                                             CS341 --> Co-Req
                                             CS310 --> Co-Req
@@ -194,6 +192,8 @@
                                                 CS460PRE("(CS310, MATH260)")
                                                 CS461PRE("(CS310)")
                                                 CS470PRE("(CS220, CS310)")
+                                                CS480PRE("(Permission of the department chair)")
+                                                CS666PRE("(CS310, MATH260)")
                                         end
                                         subgraph CS_Electives
                                             direction TB
@@ -209,6 +209,8 @@
                                             CS460("CS460: Graphics")
                                             CS461("CS461: Computer Games Programming")
                                             CS470("CS470: Introduction to Artificial Intelligence")
+                                            CS480("CS480: Special Topics")
+                                            CS666("CS666: Biomedical Signal and Image Processing ")
                                             CS4XX("CS4XX: Other CS course")
                                         end
                                         CS_Website ~~~ CS442PRE
@@ -224,6 +226,8 @@
                                         CS460PRE --> CS460
                                         CS461PRE --> CS461
                                         CS470PRE --> CS470
+                                        CS480PRE --> CS480
+                                        CS666PRE --> CS666
                                     end
                                 end
                                     Core_Classes_Prerequisites ~~~ Other_Links
@@ -266,8 +270,6 @@
                                     click CSCOURSES "https://www.cs.umb.edu/courses"
                                     click CSFACULTY "https://www.cs.umb.edu/faculty"
                         </pre>
-                    </div>
-                </div>
             <button class="button" onclick="darkMode()">Dark Mode</button>
             <button class="button" onclick="goToPre()">Click Here for Pre Spring 2023 Chart</button>
         <h2 class="header">Sample Program Progression</h2>
@@ -319,6 +321,8 @@
                     <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>     <td>GEN ED</td>
                 </tr>
             </table>
+        </div>
+    </div>
             </br></br></br>
     </body>
     </html>
