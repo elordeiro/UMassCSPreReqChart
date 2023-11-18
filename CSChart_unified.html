@@ -1,9 +1,206 @@
 <!-- Created by Estevao Lordeiro. Last update: 11/17/2023 -->
 <html>
 <head>
+    <style>
+        header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        img {
+            margin-right: 10px;
+        }   
+
+        body {
+            height: 100%;
+            justify-content: center;
+        }
+
+        body.light-mode {
+            background-color: rgb(217, 235, 252);
+        }
+
+        body.dark-mode {
+            background-color: rgb(43, 48, 59);
+        }
+
+        table {
+            width: 70%;
+            text-align: center;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table.light-mode {
+            background-color: rgb(252, 252, 252);
+            color: rgb(39, 89, 135);
+            border: 2px solid rgb(39, 89, 135); 
+        }
+
+        table.dark-mode {
+            background-color: rgb(71, 73, 73);
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        @media screen and (max-width: 1600px) {
+            table {
+                width: 100%;
+            }
+        }
+
+        .header {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header.light-mode {
+            color: rgb(39, 89, 135);
+        }
+
+        .header.dark-mode {
+            color: white;
+        }
+
+        .main {
+            height: 100%;
+            width: 100%;
+            display: table;
+        }
+
+        .wrapper {
+            display: table-cell;
+            height: 100%;
+        }
+
+        .button {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .button.light-mode {
+            color: white;
+            background-color: rgb(39, 89, 135);
+        }
+
+        .button.dark-mode {
+            color: rgb(39, 89, 135);
+            background-color: white;
+        }
+
+        .button.light-mode:hover {
+            background-color: blue;
+        }
+
+        .button.dark-mode:hover {
+            background-color: #0094FF;
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.js"></script>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <!-- <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    </script> -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            var theme = 'dark';
+        } else {
+            var theme = 'light';
+        }
+        
+        if (localStorage.getItem('time') === 'postSpring') {
+            var time = 'postSpring';
+        } else {
+            var time = 'preSpring';
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var darkMode = theme === 'dark';
+            var preSpring = time === 'preSpring';
+            var mermaidPres = document.getElementsByClassName('mermaid');
+            var mermaidInnerTextPre = mermaidPres[0].innerText;
+            var mermaidInnerTextPost = mermaidPres[1].innerText;
+        
+            if (darkMode) {
+                mermaidInnerTextPre  = mermaidInnerTextPre.replace('THEME', '%%{init: {\'theme\':\'dark\'}}%%');
+                mermaidInnerTextPost = mermaidInnerTextPost.replace('THEME', '%%{init: {\'theme\':\'dark\'}}%%');
+                document.body.classList.toggle('dark-mode');
+                document.getElementById('preSpringTable').classList.toggle('dark-mode');
+                document.getElementById('postSpringTable').classList.toggle('dark-mode');
+                const headers = document.getElementsByClassName('header');
+                for (let i = 0; i < headers.length; i++) {
+                    headers[i].classList.toggle('dark-mode');
+                }
+                const buttons = document.getElementsByClassName('button');
+                for (let i = 0; i < buttons.length; i++) {
+                    buttons[i].classList.toggle('dark-mode');
+                }
+        
+            } else {
+                mermaidInnerTextPre  = mermaidInnerTextPre.replace('THEME', '%%{init: {\'theme\':\'neutral\'}}%%');
+                mermaidInnerTextPost = mermaidInnerTextPost.replace('THEME', '%%{init: {\'theme\':\'neutral\'}}%%');
+                document.body.classList.toggle('light-mode');
+                document.getElementById('preSpringTable').classList.toggle('light-mode');
+                document.getElementById('postSpringTable').classList.toggle('light-mode');
+                const headers = document.getElementsByClassName('header');
+                for (let i = 0; i < headers.length; i++) {
+                    headers[i].classList.toggle('light-mode');
+                }
+                const buttons = document.getElementsByClassName('button');
+                for (let i = 0; i < buttons.length; i++) {
+                    buttons[i].classList.toggle('light-mode');
+                }
+            }
+        
+            if (preSpring) {
+                document.getElementById('title').innerHTML = 'PRE-Spring 2023';
+                document.getElementById('postSpring').style.display = 'none';
+                document.getElementById('postSpringTable').style.display = 'none';
+            } else {
+                document.getElementById('title').innerHTML = 'POST-Spring 2023';
+                document.getElementById('preSpring').style.display = 'none';
+                document.getElementById('preSpringTable').style.display = 'none';
+            }
+        
+            if (window.innerWidth < 1600) {
+                mermaidInnerTextPre = mermaidInnerTextPre.replace('DIAGRAM_DIR', 'direction TB');
+                mermaidInnerTextPost = mermaidInnerTextPost.replace('DIAGRAM_DIR', 'direction TB');
+            } else {
+                mermaidInnerTextPre = mermaidInnerTextPre.replace('DIAGRAM_DIR', 'direction LR');
+                mermaidInnerTextPost = mermaidInnerTextPost.replace('DIAGRAM_DIR', 'direction LR');
+            }
+        
+            mermaidPres[0].innerHTML = mermaidInnerTextPre;
+            mermaidPres[1].innerHTML = mermaidInnerTextPost;
+            mermaid.initialize({});
+        });
+        
+        function lightMode() { 
+            localStorage.setItem('theme', 'light');
+            location.reload();
+        }
+        
+        function darkMode() {
+            localStorage.setItem('theme', 'dark');
+            location.reload();
+        }
+        
+        function goToPost() {
+            localStorage.setItem('time', 'postSpring');
+            location.reload();
+        }
+        
+        function goToPre() {
+            localStorage.setItem('time', 'preSpring');
+            location.reload();
+        }
+    </script>
 </head>
 
 <body class="centered-wrapper">

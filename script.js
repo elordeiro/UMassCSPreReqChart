@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.toggle('dark-mode');
         }
+
     } else {
         mermaidInnerTextPre  = mermaidInnerTextPre.replace('THEME', '%%{init: {\'theme\':\'neutral\'}}%%');
         mermaidInnerTextPost = mermaidInnerTextPost.replace('THEME', '%%{init: {\'theme\':\'neutral\'}}%%');
@@ -52,16 +53,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (preSpring) {
-        document.getElementById('title').innerHTML = 'Pre-Spring 2023';
+        document.getElementById('title').innerHTML = 'PRE-Spring 2023';
         document.getElementById('postSpring').style.display = 'none';
         document.getElementById('postSpringTable').style.display = 'none';
     } else {
-        document.getElementById('title').innerHTML = 'Post-Spring 2023';
+        document.getElementById('title').innerHTML = 'POST-Spring 2023';
         document.getElementById('preSpring').style.display = 'none';
         document.getElementById('preSpringTable').style.display = 'none';
     }
 
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 1600) {
         mermaidInnerTextPre = mermaidInnerTextPre.replace('DIAGRAM_DIR', 'direction TB');
         mermaidInnerTextPost = mermaidInnerTextPost.replace('DIAGRAM_DIR', 'direction TB');
     } else {
